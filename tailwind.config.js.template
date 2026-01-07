@@ -1,0 +1,22 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // UPDATE: Add paths to scan for Tailwind classes
+    './wp-content/themes/YOUR_THEME_NAME/**/*.{php,js,jsx}',
+    './src/**/*.{js,jsx,php}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // UPDATE: Add your brand colors
+        'brand-primary': '#000000',
+        'brand-secondary': '#ffffff',
+      },
+      spacing: {
+        // Add custom spacing if needed
+      },
+    },
+  },
+  plugins: [],
+};
+

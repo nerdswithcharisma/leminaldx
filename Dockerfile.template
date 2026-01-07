@@ -1,0 +1,19 @@
+FROM wordpress:latest
+
+# Install WP-CLI
+RUN curl -O https://raw.githubusercontent.com/wp-cli/wp-cli/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+
+# Copy theme files
+COPY wp-content/themes/ /var/www/html/wp-content/themes/
+
+# Copy wp-config.php
+COPY wp-config.php /var/www/html/wp-config.php
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html
+
+# Add our custom startup command
+CMD ["/bin/bash", "-c", "echo 'WordPress loading from custom Dockerfile' && docker-entrypoint.sh apache2-foreground"]
+

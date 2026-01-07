@@ -1,0 +1,49 @@
+services:
+  wordpress:
+    image: wordpress:6.4-php8.2-apache
+    platform: linux/amd64
+    container_name: leminaldx-wordpress
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: leminaldx_wordpress
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./wp-config.php:/var/www/html/wp-config.php
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    platform: linux/amd64
+    container_name: leminaldx-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: leminaldx_wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    container_name: leminaldx-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: wordpress
+      PMA_PASSWORD: wordpress
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

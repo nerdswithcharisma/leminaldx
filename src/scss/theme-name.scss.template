@@ -1,0 +1,12 @@
+// Main theme stylesheet
+// Tailwind directives
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Your custom styles here
+// Example:
+// .my-custom-class {
+//   color: theme('colors.brand-primary');
+// }
+

@@ -1,0 +1,76 @@
+name: Deploy to FTP
+
+# This workflow runs when code is pushed to the main/master branch
+on:
+  push:
+    branches: [main, master]
+
+# Jobs are the main building blocks of workflows
+jobs:
+  deploy:
+    # This job runs on Ubuntu (you can also use Windows or macOS)
+    runs-on: ubuntu-latest
+
+    # Steps are individual tasks within a job
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Node.js (needed for npm run build)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Build assets
+      - name: Build assets
+        run: npm run build
+
+      # Step 5: Deploy built files to FTP
+      - name: Deploy built files to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: loose
+          server-dir: public_html/
+          local-dir: ./
+          dangerous-clean-slate: false
+          dry-run: false
+          log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.env
+            **/.env.local
+            **/docker-compose.yml
+            **/Dockerfile*
+            **/.github/**
+            **/README.md
+            **/IMPORTANT.md
+            **/QUICK_FIX*.md
+            **/WORDPRESS_SETUP.md
+            **/REQUIREMENTS.md
+            **/setup*.sh
+            **/download-wordpress.sh
+            **/fix-urls.php
+            **/src/**
+            **/package.json
+            **/package-lock.json
+            **/webpack.config.js
+            **/tailwind.config.js
+            **/postcss.config.js
+            **/.gitignore
+            **/wp-config.php.template
+            **/docker-compose.yml.template
+            **/*.template

@@ -1,0 +1,7 @@
+// Admin-specific JavaScript
+// This file is only loaded in WordPress admin area
+
+console.log('Admin scripts loaded');
+
+// Your admin-specific JavaScript code here
+

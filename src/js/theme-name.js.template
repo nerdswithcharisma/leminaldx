@@ -1,0 +1,17 @@
+// Main theme JavaScript entry point
+// Import your main SCSS file
+// IMPORTANT: Replace THEME_NAME below with your actual theme name (e.g., 'my-theme')
+import '../scss/THEME_NAME.scss';
+
+// Optional: Import React if you're using it
+// import React from 'react';
+// import { createRoot } from 'react-dom/client';
+
+// Your theme JavaScript code here
+console.log('Theme loaded successfully!');
+
+// Example: Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function () {
+  // Your initialization code here
+});
+
