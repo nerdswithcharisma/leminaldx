@@ -25,9 +25,18 @@ define('DB_COLLATE', '');
 $table_prefix = 'wp_';
 
 // Debugging
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
+if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false) {
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', true);
+    define('WP_DEBUG_DISPLAY', false);
+} else {
+    // Production - enable error display temporarily to debug 500 errors
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', true);
+    define('WP_DEBUG_DISPLAY', true);
+    @ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+}
 
 // Memory limit
 define('WP_MEMORY_LIMIT', '256M');
@@ -41,6 +50,16 @@ define('AUTH_SALT',        'put your unique phrase here');
 define('SECURE_AUTH_SALT', 'put your unique phrase here');
 define('LOGGED_IN_SALT',   'put your unique phrase here');
 define('NONCE_SALT',       'put your unique phrase here');
+
+// WordPress URLs (for production)
+// Only set if not already defined and we're not on localhost
+if (!defined('WP_HOME') && !defined('WP_SITEURL')) {
+    if (strpos($_SERVER['HTTP_HOST'], 'localhost') === false && strpos($_SERVER['HTTP_HOST'], '127.0.0.1') === false) {
+        // Production URL
+        define('WP_HOME', 'https://leminaldx.ct.ws');
+        define('WP_SITEURL', 'https://leminaldx.ct.ws');
+    }
+}
 
 // Absolute path to WordPress directory
 if (!defined('ABSPATH')) {

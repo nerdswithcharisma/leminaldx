@@ -41,7 +41,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: public_html/
+          server-dir: htdocs/
           local-dir: ./
           dangerous-clean-slate: false
           dry-run: false
@@ -63,6 +63,7 @@ jobs:
             **/setup*.sh
             **/download-wordpress.sh
             **/fix-urls.php
+            **/test-*.php
             **/src/**
             **/package.json
             **/package-lock.json
