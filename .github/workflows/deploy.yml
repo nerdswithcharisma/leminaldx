@@ -74,3 +74,18 @@ jobs:
             **/wp-config.php.template
             **/docker-compose.yml.template
             **/*.template
+            **/wp-content/uploads/**
+            **/wp-content/cache/**
+            **/wp-content/upgrade/**
+            **/wp-content/backup-db/**
+            **/wp-content/backups/**
+            **/wp-content/blogs.dir/**
+            **/wp-content/upgrade-temp-backup/**
+            **/wp-content/wflogs/**
+            **/wp-content/plugins/**
+            **/xmlrpc.php
+            **/license.txt
+            **/readme.html
+            **/wp-content/themes/twentytwentythree/**
+            **/wp-content/themes/twentytwentyfour/**
+            **/wp-content/themes/twentytwentyfive/**
