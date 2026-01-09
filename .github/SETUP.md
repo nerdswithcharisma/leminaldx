@@ -32,16 +32,32 @@ If you want Slack notifications on deployment success/failure:
 1. Add secret: `SLACK_WEBHOOK_URL`
 2. Uncomment the Slack notification steps in `.github/workflows/deploy.yml`
 
+## Prerequisites
+
+**Important:** WordPress must be installed manually on your FTP server before using this deployment workflow. The GitHub Actions workflow only deploys the `wp-content` directory and does not install WordPress core files.
+
+### Manual WordPress Installation
+
+1. Download WordPress from [wordpress.org](https://wordpress.org/download/)
+2. Upload WordPress core files to your FTP server (typically to `htdocs/` or your web root)
+3. Complete the WordPress installation via your browser
+4. Once WordPress is installed, the GitHub Actions workflow will deploy your `wp-content` directory automatically
+
 ### Deployment
 
-After setting up the secrets, the workflow will automatically deploy when you push to main branch.
+After setting up the secrets and installing WordPress manually on your server, the workflow will automatically deploy the `wp-content` directory when you push to the main branch.
+
+**What gets deployed:**
+
+- Only the `wp-content` directory (themes, plugins, etc.)
+- WordPress core files are NOT deployed (must be installed manually)
 
 ## How It Works
 
 1. **Push to main branch** triggers the workflow
 2. **Builds assets** with `npm run build`
 3. **Deploys to FTP** using the FTP-Deploy-Action
-4. **Uploads to**: `/YOUR_THEME_NAME/` directory on your FTP server
+4. **Uploads only `wp-content` directory** to `htdocs/wp-content/` on your FTP server
 
 ## Manual Deployment
 
@@ -58,8 +74,8 @@ If you need to deploy manually, you can use FTP client or command line tools.
 
 ### Files Not Uploading
 
-1. **Check server-dir path** - should match your theme directory
-2. **Verify local-dir exists** - should be `./wp-content/themes/YOUR_THEME_NAME/`
-3. **Check FTP user has write permissions**
-4. **Verify protocol** - try `ftp` instead of `ftps` if connection fails
-
+1. **Check server-dir path** - should be `htdocs/wp-content/` (or `wp-content/` if `htdocs/` is your WordPress root)
+2. **Verify WordPress is installed** - WordPress core must be installed manually before deployment
+3. **Verify local wp-content directory exists** - should be `./wp-content` in your repository
+4. **Check FTP user has write permissions** to the `wp-content` directory
+5. **Verify protocol** - try `ftp` instead of `ftps` if connection fails

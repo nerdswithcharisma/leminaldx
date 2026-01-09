@@ -42,7 +42,7 @@ jobs:
           protocol: ftp
           port: 21
           server-dir: htdocs/wp-content/
-          local-dir: ./wp-content
+          local-dir: ./wp-content/
           dangerous-clean-slate: false
           dry-run: false
           log-level: verbose
