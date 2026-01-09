@@ -32,8 +32,8 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      # Step 5: Deploy built files to FTP
-      - name: Deploy built files to FTP
+      # Step 5: Deploy wp-content directory to FTP
+      - name: Deploy wp-content to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftpupload.net
@@ -41,8 +41,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: htdocs/
-          local-dir: ./
+          server-dir: htdocs/wp-content/
+          local-dir: ./wp-content
           dangerous-clean-slate: false
           dry-run: false
           log-level: verbose
@@ -52,40 +52,15 @@ jobs:
             **/node_modules/**
             **/.env
             **/.env.local
-            **/docker-compose.yml
-            **/Dockerfile*
-            **/.github/**
-            **/README.md
-            **/IMPORTANT.md
-            **/QUICK_FIX*.md
-            **/WORDPRESS_SETUP.md
-            **/REQUIREMENTS.md
-            **/setup*.sh
-            **/download-wordpress.sh
-            **/fix-urls.php
-            **/test-*.php
-            **/src/**
-            **/package.json
-            **/package-lock.json
-            **/webpack.config.js
-            **/tailwind.config.js
-            **/postcss.config.js
-            **/.gitignore
-            **/wp-config.php.template
-            **/docker-compose.yml.template
-            **/*.template
-            **/wp-content/uploads/**
-            **/wp-content/cache/**
-            **/wp-content/upgrade/**
-            **/wp-content/backup-db/**
-            **/wp-content/backups/**
-            **/wp-content/blogs.dir/**
-            **/wp-content/upgrade-temp-backup/**
-            **/wp-content/wflogs/**
-            **/wp-content/plugins/**
-            **/xmlrpc.php
-            **/license.txt
-            **/readme.html
-            **/wp-content/themes/twentytwentythree/**
-            **/wp-content/themes/twentytwentyfour/**
-            **/wp-content/themes/twentytwentyfive/**
+            **/uploads/**
+            **/cache/**
+            **/upgrade/**
+            **/backup-db/**
+            **/backups/**
+            **/blogs.dir/**
+            **/upgrade-temp-backup/**
+            **/wflogs/**
+            **/debug.log
+            **/themes/twentytwentythree/**
+            **/themes/twentytwentyfour/**
+            **/themes/twentytwentyfive/**
