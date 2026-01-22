@@ -29,3 +29,18 @@ add_filter('wp_get_attachment_url', function($url) {
     }
     return $url;
 }, 10, 1);
+
+// Add Google Analytics
+function leminaldx_add_google_analytics() {
+    ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7W7Y08WMM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-E7W7Y08WMM');
+    </script>
+    <?php
+}
+add_action('wp_head', 'leminaldx_add_google_analytics');
