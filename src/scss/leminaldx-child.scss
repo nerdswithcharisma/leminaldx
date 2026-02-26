@@ -8,3 +8,79 @@
 .ast-theme-transparent-header .site-logo-img img {
   filter: none !important;
 }
+
+// Desktop header: cream background with blur, leminal border, rounded
+@media (min-width: 922px) {
+  .site-primary-header-wrap.ast-builder-grid-row-container {
+    margin-top: 0.75rem;
+    background: rgba(255, 254, 237, 0.45); // #FFFEED 45% fill
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid #d1ce9e; /* leminal-border */
+    border-radius: 10px;
+  }
+}
+
+// Header CTA button: leminal primary with left arrow after text (inside button)
+.ast-header-button-1 .ast-custom-button-link {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  background-color: #233b9d !important; /* leminal-primary */
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #099ec9 !important; /* primary-light */
+    color: #233b9d; /* leminal-primary */
+
+    &::after {
+      color: #233b9d;
+    }
+  }
+
+  .ast-custom-button {
+    transition: all 0.3s ease;
+    background-color: #233b9d !important;
+  }
+
+  &:hover .ast-custom-button {
+    background-color: #099ec9 !important;
+    color: #233b9d;
+  }
+
+  &::after {
+    content: '\2192'; /* right arrow */
+    margin-left: 2px;
+    font-size: 1.125em;
+    color: #919dce; /* leminal-arrow */
+    flex-shrink: 0;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+  }
+}
+
+// Header menu items: black text, bold + leminal primary + animated underline on hover
+.site-primary-header-wrap .main-header-menu .menu-item > a {
+  position: relative;
+  color: #000000 !important;
+  transition: color 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #233b9d; /* leminal-primary */
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: #233b9d !important; /* leminal-primary */
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
