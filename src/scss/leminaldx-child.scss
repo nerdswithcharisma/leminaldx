@@ -111,9 +111,9 @@
 }
 
 // Footer widget area: last widget right-aligned, #eee
-.site-footer .footer-widget-area:last-child {
+.footer-widget-area:last-child {
   text-align: right;
-  color: #eee;
+  color: #eee !important;
 }
 
 // Chat button (widget snippet): leminal border bg, black text, icon right @ 50% opacity
