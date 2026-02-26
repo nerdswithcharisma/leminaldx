@@ -17,14 +17,24 @@ function child_enqueue_styles() {
     wp_enqueue_style('child-theme-style', $base . '/css/leminaldx-child.bundle.css', array('parent-style'), '1.0.0');
     wp_enqueue_script('child-theme-script', $base . '/js/leminaldx-child.bundle.js', array('jquery'), '1.0.0', true);
 
-    wp_enqueue_style(
-        'font-awesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
-        array(),
-        '6.5.1'
-    );
+    if (! is_admin()) {
+        wp_enqueue_style(
+            'leminaldx-font-awesome',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+            array(),
+            '6.5.1'
+        );
+    }
 }
-add_action('wp_enqueue_scripts', 'child_enqueue_styles');
+add_action('wp_enqueue_scripts', 'child_enqueue_styles', 15);
+
+// Allow Font Awesome to load font files from CDN (crossorigin)
+add_filter('style_loader_tag', function ($html, $handle) {
+    if ($handle === 'leminaldx-font-awesome') {
+        return str_replace(' rel=', " crossorigin='anonymous' rel=", $html);
+    }
+    return $html;
+}, 10, 2);
 
 // Add Google Analytics
 function leminaldx_add_google_analytics() {
