@@ -27,6 +27,7 @@
   align-items: center;
   transition: all 0.3s ease;
   background-color: #233b9d !important; /* leminal-primary */
+  color: #fff;
   border-radius: 10px;
 
   &:hover {
@@ -41,6 +42,7 @@
   .ast-custom-button {
     transition: all 0.3s ease;
     background-color: #233b9d !important;
+    color: #fff;
   }
 
   &:hover .ast-custom-button {
@@ -108,7 +110,7 @@
 }
 
 // Footer widget area: last widget right-aligned, #eee
-.site-footer .footer-widget-area > *:last-child {
+.site-footer .site-footer-primary-section-3 {
   text-align: right;
   color: #eee;
 }
