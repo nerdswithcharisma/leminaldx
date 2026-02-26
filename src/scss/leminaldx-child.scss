@@ -110,7 +110,7 @@
 }
 
 // Footer widget area: last widget right-aligned, #eee
-.site-footer .site-footer-primary-section-3 {
+.site-footer .footer-widget-area:last-child {
   text-align: right;
   color: #eee;
 }
