@@ -31,11 +31,12 @@
   border-radius: 10px;
 
   &:hover {
-    background-color: #099ec9 !important; /* primary-light */
-    color: #233b9d; /* leminal-primary */
+    background-color: #d1ce9e !important; /* primary-light */
+    color: #233b9d !important; /* leminal-primary */
 
     &::after {
       color: #233b9d;
+
     }
   }
 
@@ -46,7 +47,7 @@
   }
 
   &:hover .ast-custom-button {
-    background-color: #099ec9 !important;
+    background-color: #d1ce9e !important;
     color: #233b9d;
   }
 
