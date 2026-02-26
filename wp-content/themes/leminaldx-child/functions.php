@@ -16,6 +16,13 @@ function child_enqueue_styles() {
 
     wp_enqueue_style('child-theme-style', $base . '/css/leminaldx-child.bundle.css', array('parent-style'), '1.0.0');
     wp_enqueue_script('child-theme-script', $base . '/js/leminaldx-child.bundle.js', array('jquery'), '1.0.0', true);
+
+    wp_enqueue_style(
+        'font-awesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+        array(),
+        '6.5.1'
+    );
 }
 add_action('wp_enqueue_scripts', 'child_enqueue_styles');
 
