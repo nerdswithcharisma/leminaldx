@@ -84,3 +84,31 @@
     }
   }
 }
+
+// Footer widget titles: bold + primary-light
+.site-footer .widget-title {
+  font-weight: 700;
+  color: #099ec9 !important; /* primary-light */
+}
+
+// Footer links (including tel:)
+.site-footer a {
+  color: #eee !important;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &[href^="tel:"] {
+    color: #d1ce9e !important; /* leminal-border */
+  }
+}
+
+// Footer copyright
+.ast-footer-copyright {
+  color: #eee;
+}
+
+// Footer widget area: last widget right-aligned, #eee
+.site-footer .footer-widget-area > *:last-child {
+  text-align: right;
+  color: #eee;
+}
