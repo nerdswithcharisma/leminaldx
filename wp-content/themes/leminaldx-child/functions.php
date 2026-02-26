@@ -7,7 +7,9 @@
 function child_enqueue_styles() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 
-    $is_dev = defined('WP_DEBUG') && WP_DEBUG && ! is_admin();
+    $is_local = strpos($_SERVER['HTTP_HOST'] ?? '', 'localhost') !== false
+        || strpos($_SERVER['HTTP_HOST'] ?? '', '127.0.0.1') !== false;
+    $is_dev = $is_local && defined('WP_DEBUG') && WP_DEBUG && ! is_admin();
     $base = $is_dev
         ? 'http://localhost:3000'
         : get_stylesheet_directory_uri() . '/dist';
