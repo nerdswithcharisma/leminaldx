@@ -4,8 +4,7 @@
  */
 get_header();
 ?>
-
-<main>
+<main id="main" class="site-main">
     <?php
     if (have_posts()) :
         while (have_posts()) :
@@ -15,6 +14,5 @@ get_header();
     endif;
     ?>
 </main>
-
 <?php
 get_footer();
