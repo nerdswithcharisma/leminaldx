@@ -11,7 +11,7 @@
 @media (max-width: 767px) {
   .page-slug-home-2 {
     h2 {
-      font-size: 4em !important;
+      font-size: 2.5em !important;
       margin-top: 20px !important;
       line-height: 0.8em !important;
     }
@@ -24,5 +24,9 @@
     .elementor-button {
       width: 100% !important;
     }
+  }
+
+  .elementor-902.elementor-element.elementor-element-1f87f4e > .elementor-widget-container {
+    margin: -40px 0px 0px 0px !important;
   }
 }
