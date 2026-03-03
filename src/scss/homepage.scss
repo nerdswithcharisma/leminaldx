@@ -1,11 +1,3 @@
-// Homepage-specific styles
-
-.page-slug-homepage h2 {
-  font-size: 4em;
-  margin-top: 50px;
-  line-height: 0.8em;
-}
-
 #hero-image {
   mix-blend-mode: darken;
 }
@@ -13,4 +5,13 @@
 .elementor-902 .elementor-element.elementor-element-ec19095 > .elementor-shape-top svg,
 .elementor-902 .elementor-element.elementor-element-ec19095 > .e-con-inner > .elementor-shape-top svg {
   height: 0;
+}
+
+// (mobile only)
+@media (max-width: 767px) {
+  .page-slug-homepage h2 {
+    font-size: 4em;
+    margin-top: 50px;
+    line-height: 0.8em;
+  }
 }
