@@ -1,9 +1,9 @@
-// Main theme stylesheet
+// Main theme stylesheet – @use must be first
+@use 'homepage';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'homepage';
 
 // Override Astra logo color filter so custom logo displays in original colors
 .site-logo-img img,

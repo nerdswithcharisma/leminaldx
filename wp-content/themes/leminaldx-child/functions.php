@@ -36,6 +36,18 @@ add_filter('style_loader_tag', function ($html, $handle) {
     return $html;
 }, 10, 2);
 
+// Add page slug as class on article for CSS targeting (e.g. .page-slug-homepage)
+add_filter('post_class', function ($classes, $class, $post_id) {
+    $post = get_post($post_id);
+    if ($post && $post->post_type === 'page' && ! empty($post->post_name)) {
+        $slug = sanitize_html_class($post->post_name);
+        if ($slug) {
+            $classes[] = 'page-slug-' . $slug;
+        }
+    }
+    return $classes;
+}, 10, 3);
+
 // Add Google Analytics
 function leminaldx_add_google_analytics() {
     ?>
