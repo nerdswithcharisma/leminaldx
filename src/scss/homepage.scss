@@ -12,12 +12,17 @@
   .page-slug-home-2 {
     h2 {
       font-size: 4em !important;
-      margin-top: 50px !important;
+      margin-top: 20px !important;
       line-height: 0.8em !important;
     }
 
     p, .entry-content p {
       font-size: 17px !important;
+      text-align: center;
+    }
+
+    .elementor-button {
+      width: 100% !important;
     }
   }
 }
