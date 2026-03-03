@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'homepage';
+
 // Override Astra logo color filter so custom logo displays in original colors
 .site-logo-img img,
 .ast-theme-transparent-header .site-logo-img img {
