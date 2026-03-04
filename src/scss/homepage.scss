@@ -43,4 +43,9 @@
   .elementor-widget-container .elementor-icon-box-icon {
     text-align: center !important;
   }
+
+  .elementor-902 .elementor-element.elementor-element-ec19095:not(.elementor-motion-effects-element-type-background), .elementor-902 .elementor-element.elementor-element-ec19095 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+    background-image: none !important;
+    background-color: #0b3c8c !important;
+  }
 }
