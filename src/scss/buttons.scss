@@ -1,0 +1,14 @@
+// General button styles: primary bg, white text, hover = primary text + border bg
+input[type="submit"],
+button[type="submit"],
+.button {
+  background-color: #233b9d !important; /* leminal-primary */
+  color: #fff !important;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #233b9d !important; /* leminal-primary */
+    background-color: #d1ce9e !important; /* leminal-border */
+  }
+}
