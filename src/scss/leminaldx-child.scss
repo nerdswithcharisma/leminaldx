@@ -1,6 +1,7 @@
 // Main theme stylesheet – @use must be first
 @use 'homepage';
 @use 'buttons';
+@use 'forms';
 
 @tailwind base;
 @tailwind components;
