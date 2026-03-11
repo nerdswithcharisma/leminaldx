@@ -193,6 +193,11 @@ body.page-template-page-internal-php.ast-padded-layout.ast-plain-container .site
   backdrop-filter: none !important;
 }
 
+// Internal template: keep content area white
+body.page-template-page-internal-php #leminal-internal-content .entry-content {
+  background: #fff;
+}
+
 .ast-primary-header-bar {
   background: none !important;
   border: none !important;
