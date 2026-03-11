@@ -17,7 +17,7 @@
 @media (min-width: 922px) {
   .site-primary-header-wrap.ast-builder-grid-row-container {
     margin-top: 0.75rem;
-    background: rgba(255, 254, 237, 0.45); // #FFFEED 45% fill
+    background: rgba(255, 255, 248, 0.45) !important; // #FFFEED 45% fill
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     border: 1px solid #d1ce9e; /* leminal-border */
@@ -153,4 +153,27 @@
       color: #d1ce9e !important;
     }
   }
+}
+
+// Internal page template: underlay behind header + content (150px tall)
+.leminal-internal-underlay {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 45px solid #233b9d; /* leminal-border */
+}
+
+// Internal page content: clear the menu bar
+#leminal-internal-content {
+  margin: 1rem 0;
+}
+
+.ast-primary-header-bar {
+  background: none !important;
+  border: none !important;
 }
