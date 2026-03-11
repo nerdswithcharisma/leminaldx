@@ -184,6 +184,15 @@ body.page-template-page-internal-php #content .ast-container {
   padding-right: 1rem;
 }
 
+// Internal template: remove Astra's white box so underlay/background shows
+body.page-template-page-internal-php.ast-separate-container .ast-article-single:not(.ast-related-post),
+body.page-template-page-internal-php.ast-separate-container .site-content,
+body.page-template-page-internal-php.ast-box-layout.ast-plain-container .site-content,
+body.page-template-page-internal-php.ast-padded-layout.ast-plain-container .site-content {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
 .ast-primary-header-bar {
   background: none !important;
   border: none !important;
