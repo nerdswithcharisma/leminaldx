@@ -196,6 +196,8 @@ body.page-template-page-internal-php.ast-padded-layout.ast-plain-container .site
 // Internal template: keep content area white
 body.page-template-page-internal-php #leminal-internal-content .entry-content {
   background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 12px 24px rgba(0, 0, 0, 0.06);
 }
 
 .ast-primary-header-bar {
