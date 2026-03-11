@@ -168,9 +168,20 @@
   border-bottom: 45px solid #233b9d; /* leminal-border */
 }
 
-// Internal page content: clear the menu bar
+// Internal page content: clear the menu bar + full width for Elementor
 #leminal-internal-content {
   margin: 1rem 0;
+  max-width: none;
+  width: 100%;
+}
+
+// Internal template: let Elementor use full width (override Astra container)
+body.page-template-page-internal-php .site-content .ast-container,
+body.page-template-page-internal-php #content .ast-container {
+  max-width: none;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ast-primary-header-bar {
